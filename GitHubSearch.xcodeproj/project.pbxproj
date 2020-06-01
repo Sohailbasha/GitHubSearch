@@ -14,6 +14,8 @@
 		FDB75F9124848874002F3542 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9024848874002F3542 /* UserSearchViewController.swift */; };
 		FDB75F9324848CDC002F3542 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9224848CDC002F3542 /* APIService.swift */; };
 		FDB75F9524848D30002F3542 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9424848D30002F3542 /* User.swift */; };
+		FDB75F9A24849196002F3542 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9824849196002F3542 /* UserTableViewCell.swift */; };
+		FDB75F9B24849196002F3542 /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F9924849196002F3542 /* UsersTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FDB75F9024848874002F3542 /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		FDB75F9224848CDC002F3542 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FDB75F9424848D30002F3542 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FDB75F9824849196002F3542 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		FDB75F9924849196002F3542 /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				FDB75F9024848874002F3542 /* UserSearchViewController.swift */,
+				FDB75F9824849196002F3542 /* UserTableViewCell.swift */,
+				FDB75F9924849196002F3542 /* UsersTableViewCell.xib */,
 			);
 			path = UserSearch;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 			files = (
 				FDB75F89248486C6002F3542 /* LaunchScreen.storyboard in Resources */,
 				FDB75F86248486C6002F3542 /* Assets.xcassets in Resources */,
+				FDB75F9B24849196002F3542 /* UsersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +167,7 @@
 				FDB75F9124848874002F3542 /* UserSearchViewController.swift in Sources */,
 				FDB75F9324848CDC002F3542 /* APIService.swift in Sources */,
 				FDB75F9524848D30002F3542 /* User.swift in Sources */,
+				FDB75F9A24849196002F3542 /* UserTableViewCell.swift in Sources */,
 				FDB75F7F248486C5002F3542 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
