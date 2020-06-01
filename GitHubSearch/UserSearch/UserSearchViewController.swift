@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import Combine
 
 class UserSearchViewController: UITableViewController {
 
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     var timer: Timer?
-    
-    // TODO: array of users to be searched
+    private var anyCancellable: AnyCancellable?
+
+    private var users: [User] = [] {
+        didSet {
+            tableView.reloadData()
+            for user in self.users {
+                print(user.login)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +59,13 @@ extension UserSearchViewController {
 // MARK: - Search bar delegate
 extension UserSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // create network call
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            let service = APIService()
+            self.anyCancellable = service.getAllData(query: searchText).sink(receiveCompletion: { _ in
+            }, receiveValue: { (users) in
+                self.users = users
+            })
+        })
     }
 }
