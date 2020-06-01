@@ -16,4 +16,5 @@ class CustomHeaderView: UIView {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var headerSearchBar: UISearchBar!
 }

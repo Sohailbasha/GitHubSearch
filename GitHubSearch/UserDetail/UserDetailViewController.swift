@@ -22,6 +22,12 @@ class UserDetailViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    var filteredArray: [Repository] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +61,7 @@ class UserDetailViewController: UIViewController {
         customView.emailLabel.text = user.email
         customView.locationLabel.text = user.location
         customView.joinDateLabel.text = user.createdAt
-        
+
     
         self.tableView.setTableHeaderView(headerView: customView)
         self.tableView.updateHeaderViewFrame()
@@ -66,8 +72,11 @@ class UserDetailViewController: UIViewController {
                 
             }, receiveValue: { (repos) in
                 self.repositories = repos
+                self.filteredArray = repos
             })
         }
+        
+        customView.headerSearchBar.delegate = self
         setUp()
     }
     
@@ -77,21 +86,23 @@ class UserDetailViewController: UIViewController {
 
     func setUp() {
         self.title = user.login ?? ""
-        
     }
     
+    func filterTableView(searchText: String) {
+        
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
+        return filteredArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repoCell", for: indexPath)
-        let repo = repositories[indexPath.row]
+        let repo = filteredArray[indexPath.row]
         cell.textLabel?.text = repo.name
         cell.selectionStyle = .none
         return cell
@@ -102,3 +113,13 @@ extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension UserDetailViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            filteredArray = repositories
+        } else {
+            let filtered = repositories.filter {$0.name!.contains(searchText)}
+            self.filteredArray = filtered
+        }
+    }
+}

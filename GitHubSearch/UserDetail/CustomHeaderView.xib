@@ -96,6 +96,7 @@
                 <outlet property="emailLabel" destination="21d-VQ-EDn" id="HMU-gX-Q5a"/>
                 <outlet property="followerCountLabel" destination="xOu-6a-e6w" id="hMz-Zv-Mgf"/>
                 <outlet property="followingCountLabel" destination="KLG-q8-tJ5" id="7VB-Vh-00L"/>
+                <outlet property="headerSearchBar" destination="iL1-qy-ag6" id="qJ1-Do-ZcN"/>
                 <outlet property="joinDateLabel" destination="UQN-CX-SfX" id="hof-DB-J2Z"/>
                 <outlet property="locationLabel" destination="hbz-NW-y4K" id="pti-4m-c9b"/>
                 <outlet property="userBioLabel" destination="cRS-u1-ZHh" id="hmd-3n-Y5P"/>
