@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -18,10 +19,10 @@ class UserTableViewCell: UITableViewCell {
         self.backgroundColor = .clear
     }
 
-    func setup(userName: String, repoCount: String, imageUrl: URL?) {
-        self.userNameLabel.text = userName
-        self.repoCountLabel.text = repoCount
-        // set imageview Image
+    func setup(userName: String, repoCount: String, imageURL: URL?) {
+        userNameLabel.text = userName
+        repoCountLabel.text = repoCount
+        avatarImageView.sd_setImage(with: imageURL, completed: nil)
     }
 
 }

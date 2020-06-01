@@ -48,13 +48,14 @@ extension UserSearchViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? UserTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
 
         let user = users[indexPath.row]
-
         let userName = user.login ?? ""
         let repoCount = user.repoCount ?? 0
-        
-        cell.setup(userName: userName, repoCount: "\(repoCount)", imageUrl: nil)
+        let imageURL = URL(string: user.avatarURL ?? "")
+
+        cell.setup(userName: userName, repoCount: "\(repoCount)", imageURL: imageURL)
         return cell
     }
 
