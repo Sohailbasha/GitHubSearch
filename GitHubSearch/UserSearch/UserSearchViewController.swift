@@ -62,9 +62,13 @@ extension UserSearchViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
         
+        
         let userDetailVC = UserDetailViewController()
         userDetailVC.user = user
-        self.navigationController?.present(userDetailVC, animated: true, completion: nil)
+
+        let navigationController = UINavigationController(rootViewController: userDetailVC)
+
+        self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -74,7 +78,7 @@ extension UserSearchViewController: UISearchBarDelegate {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             let service = APIService()
-            self.anyCancellable = service.getAllData(query: searchText).sink(receiveCompletion: { _ in
+            self.anyCancellable = service.getAllUserData(query: searchText).sink(receiveCompletion: { _ in
             }, receiveValue: { (users) in
                 self.users = users
             })

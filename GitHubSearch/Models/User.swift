@@ -18,15 +18,16 @@ struct FetchedUser: Codable {
 struct User: Codable {
     let login: String?
     let avatarURL: String?
-    
+    let reposURL: String?
     let createdAt: String?
-    let location: String?
 
     let repoCount: Int?
     let followerCount: Int?
     let followingCount: Int?
 
     let bio: String?
+    let email: String?
+    let location: String?
     
     enum CodingKeys: String, CodingKey {
         case login = "login"
@@ -37,5 +38,21 @@ struct User: Codable {
         case followerCount = "followers"
         case followingCount = "following"
         case bio = "bio"
+        case email = "email"
+        case reposURL = "repos_url"
+    }
+}
+
+struct RepoResponse: Codable {
+    
+}
+
+struct Repository: Codable {
+    let name: String?
+    let htmlURL: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case htmlURL = "html_url"
     }
 }
