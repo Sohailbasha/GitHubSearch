@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		FDB75F7D248486C5002F3542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F7C248486C5002F3542 /* AppDelegate.swift */; };
 		FDB75F7F248486C5002F3542 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F7E248486C5002F3542 /* SceneDelegate.swift */; };
-		FDB75F81248486C5002F3542 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F80248486C5002F3542 /* ViewController.swift */; };
-		FDB75F84248486C5002F3542 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F82248486C5002F3542 /* Main.storyboard */; };
 		FDB75F86248486C6002F3542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F85248486C6002F3542 /* Assets.xcassets */; };
 		FDB75F89248486C6002F3542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		FDB75F79248486C5002F3542 /* GitHubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB75F7C248486C5002F3542 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB75F7E248486C5002F3542 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FDB75F80248486C5002F3542 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FDB75F83248486C5002F3542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDB75F85248486C6002F3542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDB75F88248486C6002F3542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDB75F8A248486C6002F3542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 			children = (
 				FDB75F7C248486C5002F3542 /* AppDelegate.swift */,
 				FDB75F7E248486C5002F3542 /* SceneDelegate.swift */,
-				FDB75F80248486C5002F3542 /* ViewController.swift */,
-				FDB75F82248486C5002F3542 /* Main.storyboard */,
 				FDB75F85248486C6002F3542 /* Assets.xcassets */,
 				FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */,
 				FDB75F8A248486C6002F3542 /* Info.plist */,
@@ -127,7 +121,6 @@
 			files = (
 				FDB75F89248486C6002F3542 /* LaunchScreen.storyboard in Resources */,
 				FDB75F86248486C6002F3542 /* Assets.xcassets in Resources */,
-				FDB75F84248486C5002F3542 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +131,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB75F81248486C5002F3542 /* ViewController.swift in Sources */,
 				FDB75F7D248486C5002F3542 /* AppDelegate.swift in Sources */,
 				FDB75F7F248486C5002F3542 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +139,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FDB75F82248486C5002F3542 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FDB75F83248486C5002F3542 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
