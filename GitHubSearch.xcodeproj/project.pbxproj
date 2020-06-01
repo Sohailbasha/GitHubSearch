@@ -11,6 +11,7 @@
 		FDB75F7F248486C5002F3542 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F7E248486C5002F3542 /* SceneDelegate.swift */; };
 		FDB75F86248486C6002F3542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F85248486C6002F3542 /* Assets.xcassets */; };
 		FDB75F89248486C6002F3542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */; };
+		FDB75F9124848874002F3542 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9024848874002F3542 /* UserSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		FDB75F85248486C6002F3542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDB75F88248486C6002F3542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDB75F8A248486C6002F3542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB75F9024848874002F3542 /* UserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				FDB75F7C248486C5002F3542 /* AppDelegate.swift */,
 				FDB75F7E248486C5002F3542 /* SceneDelegate.swift */,
+				FDB75F9024848874002F3542 /* UserSearchViewController.swift */,
 				FDB75F85248486C6002F3542 /* Assets.xcassets */,
 				FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */,
 				FDB75F8A248486C6002F3542 /* Info.plist */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB75F7D248486C5002F3542 /* AppDelegate.swift in Sources */,
+				FDB75F9124848874002F3542 /* UserSearchViewController.swift in Sources */,
 				FDB75F7F248486C5002F3542 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
