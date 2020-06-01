@@ -60,14 +60,30 @@
 			children = (
 				FDB75F7C248486C5002F3542 /* AppDelegate.swift */,
 				FDB75F7E248486C5002F3542 /* SceneDelegate.swift */,
-				FDB75F9424848D30002F3542 /* User.swift */,
-				FDB75F9024848874002F3542 /* UserSearchViewController.swift */,
+				FDB75F9724848E0C002F3542 /* Models */,
+				FDB75F9624848E04002F3542 /* UserSearch */,
 				FDB75F9224848CDC002F3542 /* APIService.swift */,
 				FDB75F85248486C6002F3542 /* Assets.xcassets */,
 				FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */,
 				FDB75F8A248486C6002F3542 /* Info.plist */,
 			);
 			path = GitHubSearch;
+			sourceTree = "<group>";
+		};
+		FDB75F9624848E04002F3542 /* UserSearch */ = {
+			isa = PBXGroup;
+			children = (
+				FDB75F9024848874002F3542 /* UserSearchViewController.swift */,
+			);
+			path = UserSearch;
+			sourceTree = "<group>";
+		};
+		FDB75F9724848E0C002F3542 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FDB75F9424848D30002F3542 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
