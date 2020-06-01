@@ -14,4 +14,13 @@ extension UIView {
         let bundle = Bundle(for: classForCoder())
         return UINib(nibName: String(describing: classForCoder()), bundle: bundle)
     }
+
+    func setSubviewForAutoLayout(_ subview: UIView) {
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(subview)
+    }
+
+    func setSubviewsForAutoLayout(_ subviews: [UIView]) {
+        subviews.forEach(self.setSubviewForAutoLayout)
+    }
 }

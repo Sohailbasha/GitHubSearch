@@ -59,6 +59,13 @@ extension UserSearchViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = users[indexPath.row]
+        
+        let userDetailVC = UserDetailViewController()
+        userDetailVC.user = user
+        self.navigationController?.present(userDetailVC, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Search bar delegate

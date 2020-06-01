@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		FDB75F9A24849196002F3542 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9824849196002F3542 /* UserTableViewCell.swift */; };
 		FDB75F9B24849196002F3542 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F9924849196002F3542 /* UserTableViewCell.xib */; };
 		FDB75F9D24849809002F3542 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9C24849809002F3542 /* UIView+Extension.swift */; };
+		FDB75FA024849BC6002F3542 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9F24849BC6002F3542 /* UserDetailViewController.swift */; };
+		FDB75FA324849E4D002F3542 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75FA224849E4D002F3542 /* ProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		FDB75F9824849196002F3542 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FDB75F9924849196002F3542 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		FDB75F9C24849809002F3542 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FDB75F9F24849BC6002F3542 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		FDB75FA224849E4D002F3542 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,6 @@
 				AB443669AD0302DF818DDF09 /* Pods-GitHubSearch.debug.xcconfig */,
 				0325CD151EDD47FF054A6230 /* Pods-GitHubSearch.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,6 +96,7 @@
 				FDB75F7E248486C5002F3542 /* SceneDelegate.swift */,
 				FDB75F9724848E0C002F3542 /* Models */,
 				FDB75F9624848E04002F3542 /* UserSearch */,
+				FDB75FA124849BD6002F3542 /* UserDetail */,
 				FDB75F9E24849816002F3542 /* Extensions */,
 				FDB75F9224848CDC002F3542 /* APIService.swift */,
 				FDB75F85248486C6002F3542 /* Assets.xcassets */,
@@ -126,6 +130,15 @@
 				FDB75F9C24849809002F3542 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDB75FA124849BD6002F3542 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FDB75F9F24849BC6002F3542 /* UserDetailViewController.swift */,
+				FDB75FA224849E4D002F3542 /* ProfileHeader.swift */,
+			);
+			path = UserDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,11 +258,13 @@
 			files = (
 				FDB75F7D248486C5002F3542 /* AppDelegate.swift in Sources */,
 				FDB75F9D24849809002F3542 /* UIView+Extension.swift in Sources */,
+				FDB75FA024849BC6002F3542 /* UserDetailViewController.swift in Sources */,
 				FDB75F9124848874002F3542 /* UserSearchViewController.swift in Sources */,
 				FDB75F9324848CDC002F3542 /* APIService.swift in Sources */,
 				FDB75F9524848D30002F3542 /* User.swift in Sources */,
 				FDB75F9A24849196002F3542 /* UserTableViewCell.swift in Sources */,
 				FDB75F7F248486C5002F3542 /* SceneDelegate.swift in Sources */,
+				FDB75FA324849E4D002F3542 /* ProfileHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
