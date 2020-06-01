@@ -11,6 +11,7 @@ import Combine
 
 class UserSearchViewController: UITableViewController {
 
+    fileprivate let reuseIdentifier = "usersCell"
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     var timer: Timer?
     private var anyCancellable: AnyCancellable?
@@ -23,6 +24,8 @@ class UserSearchViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UserTableViewCell.nib, forCellReuseIdentifier: reuseIdentifier)
+        tableView.tableFooterView = UIView()
         setupSearchBar()
     }
 
@@ -44,7 +47,7 @@ extension UserSearchViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? UserTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? UserTableViewCell else { return UITableViewCell() }
 
         let user = users[indexPath.row]
 

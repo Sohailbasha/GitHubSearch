@@ -15,7 +15,8 @@
 		FDB75F9324848CDC002F3542 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9224848CDC002F3542 /* APIService.swift */; };
 		FDB75F9524848D30002F3542 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9424848D30002F3542 /* User.swift */; };
 		FDB75F9A24849196002F3542 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9824849196002F3542 /* UserTableViewCell.swift */; };
-		FDB75F9B24849196002F3542 /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F9924849196002F3542 /* UsersTableViewCell.xib */; };
+		FDB75F9B24849196002F3542 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB75F9924849196002F3542 /* UserTableViewCell.xib */; };
+		FDB75F9D24849809002F3542 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB75F9C24849809002F3542 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		FDB75F9224848CDC002F3542 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FDB75F9424848D30002F3542 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FDB75F9824849196002F3542 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		FDB75F9924849196002F3542 /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
+		FDB75F9924849196002F3542 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		FDB75F9C24849809002F3542 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				FDB75F7E248486C5002F3542 /* SceneDelegate.swift */,
 				FDB75F9724848E0C002F3542 /* Models */,
 				FDB75F9624848E04002F3542 /* UserSearch */,
+				FDB75F9E24849816002F3542 /* Extensions */,
 				FDB75F9224848CDC002F3542 /* APIService.swift */,
 				FDB75F85248486C6002F3542 /* Assets.xcassets */,
 				FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */,
@@ -79,7 +82,7 @@
 			children = (
 				FDB75F9024848874002F3542 /* UserSearchViewController.swift */,
 				FDB75F9824849196002F3542 /* UserTableViewCell.swift */,
-				FDB75F9924849196002F3542 /* UsersTableViewCell.xib */,
+				FDB75F9924849196002F3542 /* UserTableViewCell.xib */,
 			);
 			path = UserSearch;
 			sourceTree = "<group>";
@@ -90,6 +93,14 @@
 				FDB75F9424848D30002F3542 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FDB75F9E24849816002F3542 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FDB75F9C24849809002F3542 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +163,7 @@
 			files = (
 				FDB75F89248486C6002F3542 /* LaunchScreen.storyboard in Resources */,
 				FDB75F86248486C6002F3542 /* Assets.xcassets in Resources */,
-				FDB75F9B24849196002F3542 /* UsersTableViewCell.xib in Resources */,
+				FDB75F9B24849196002F3542 /* UserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB75F7D248486C5002F3542 /* AppDelegate.swift in Sources */,
+				FDB75F9D24849809002F3542 /* UIView+Extension.swift in Sources */,
 				FDB75F9124848874002F3542 /* UserSearchViewController.swift in Sources */,
 				FDB75F9324848CDC002F3542 /* APIService.swift in Sources */,
 				FDB75F9524848D30002F3542 /* User.swift in Sources */,
