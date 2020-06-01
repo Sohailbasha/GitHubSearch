@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SDWebImage
 
-class CustomHeaderView: UIView {
+class ProfileHeaderView: UIView {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userBioLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -17,4 +18,16 @@ class CustomHeaderView: UIView {
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var headerSearchBar: UISearchBar!
+    
+    func setupView(user: User) {
+        emailLabel.text = user.email
+        joinDateLabel.text = user.createdAt
+        locationLabel.text = user.location
+        followerCountLabel.text = "Followers: \(user.followerCount ?? 0)"
+        followingCountLabel.text = "Following: \(user.followingCount ?? 0)"
+        userBioLabel.text = user.bio
+
+        let imageURL = URL(string: user.avatarURL ?? "")
+        avatarImage.sd_setImage(with: imageURL, completed: nil)
+    }
 }

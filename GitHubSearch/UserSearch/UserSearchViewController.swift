@@ -15,6 +15,7 @@ class UserSearchViewController: UITableViewController {
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     var timer: Timer?
     private var anyCancellable: AnyCancellable?
+    var service: APIService!
 
     private var users: [User] = [] {
         didSet {
@@ -24,6 +25,8 @@ class UserSearchViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        service = APIService()
+        self.title = "GitHub Search"
         tableView.register(UserTableViewCell.nib, forCellReuseIdentifier: reuseIdentifier)
         tableView.tableFooterView = UIView()
         setupSearchBar()
@@ -45,7 +48,6 @@ extension UserSearchViewController {
         return users.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? UserTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
@@ -61,13 +63,8 @@ extension UserSearchViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        
-        
-        let userDetailVC = UserDetailViewController()
-        userDetailVC.user = user
-
+        let userDetailVC = UserDetailViewController.create(user: user, service: service)
         let navigationController = UINavigationController(rootViewController: userDetailVC)
-
         self.navigationController?.present(navigationController, animated: true, completion: nil)
     }
 }
@@ -75,13 +72,17 @@ extension UserSearchViewController {
 // MARK: - Search bar delegate
 extension UserSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            let service = APIService()
-            self.anyCancellable = service.getAllUserData(query: searchText).sink(receiveCompletion: { _ in
-            }, receiveValue: { (users) in
-                self.users = users
+        if searchText == "" {
+            self.users = []
+        } else {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+                let service = APIService()
+                self.anyCancellable = service.getAllUserData(query: searchText).sink(receiveCompletion: { _ in
+                }, receiveValue: { (users) in
+                    self.users = users
+                })
             })
-        })
+        }
     }
 }

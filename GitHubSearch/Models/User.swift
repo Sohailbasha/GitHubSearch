@@ -42,17 +42,3 @@ struct User: Codable {
         case reposURL = "repos_url"
     }
 }
-
-struct RepoResponse: Codable {
-    
-}
-
-struct Repository: Codable {
-    let name: String?
-    let htmlURL: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case htmlURL = "html_url"
-    }
-}
