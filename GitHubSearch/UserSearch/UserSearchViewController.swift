@@ -13,8 +13,9 @@ class UserSearchViewController: UITableViewController {
 
     fileprivate let reuseIdentifier = "usersCell"
     fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate var anyCancellable: AnyCancellable?
+
     var timer: Timer?
-    private var anyCancellable: AnyCancellable?
     var service: APIService!
 
     private var users: [User] = [] {
@@ -71,15 +72,29 @@ extension UserSearchViewController {
 
 // MARK: - Search bar delegate
 extension UserSearchViewController: UISearchBarDelegate {
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchUsers(searchText)
+    }
+
+    // Make API call using search bars `searchText` as a query
+    func searchUsers(_ searchText: String) {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.center = tableView.center
+        indicator.hidesWhenStopped = true
+
         if searchText == "" {
             self.users = []
         } else {
+            // debounce api search by half a second. This is so we do not make extranous network calls.
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+                self.view.addSubview(indicator)
+                indicator.startAnimating()
                 let service = APIService()
                 self.anyCancellable = service.getAllUserData(query: searchText).sink(receiveCompletion: { _ in
                 }, receiveValue: { (users) in
+                    indicator.stopAnimating()
                     self.users = users
                 })
             })

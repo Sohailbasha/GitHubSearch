@@ -18,10 +18,9 @@ class ProfileHeaderView: UIView {
     @IBOutlet weak var followerCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var headerSearchBar: UISearchBar!
-    
+
     func setupView(user: User) {
         emailLabel.text = user.email
-        joinDateLabel.text = user.createdAt
         locationLabel.text = user.location
         followerCountLabel.text = "Followers: \(user.followerCount ?? 0)"
         followingCountLabel.text = "Following: \(user.followingCount ?? 0)"
@@ -29,5 +28,9 @@ class ProfileHeaderView: UIView {
 
         let imageURL = URL(string: user.avatarURL ?? "")
         avatarImage.sd_setImage(with: imageURL, completed: nil)
+
+        if let dateString = DateHelper.getFormatedDate(dateString: user.createdAt) {
+            joinDateLabel.text = "Member since \(dateString)"
+        }
     }
 }

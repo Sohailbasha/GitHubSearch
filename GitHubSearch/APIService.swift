@@ -11,9 +11,19 @@ import Combine
 
 class APIService {
 
-    let userSearchBaseURL = "https://api.github.com/search/users" // for search
-    let userInfoBaseURL = "https://api.github.com/users/" // for userInfo
+    enum HTTPMethod: String {
+        case get = "GET"
+        case put = "PUT"
+        case post = "POST"
+        case patch = "PATCH"
+        case delete = "DELETE"
+    }
 
+    let userSearchBaseURL = "https://api.github.com/search/users" // for search.
+    let userInfoBaseURL = "https://api.github.com/users/" // for userInfo.
+    let githubAuthToken = "" // [!] paste github auth token.
+
+    // fetch userID's from API
     func fetchUsers(query: String) -> AnyPublisher<[FetchedUser], Error> {
         let parameters = ["q":query]
         
@@ -21,7 +31,7 @@ class APIService {
             fatalError("Invalid URL")
         }
         
-        let url = self.url(byAdding: parameters, to: baseURL)
+        let url = URLHelper.url(byAdding: parameters, to: baseURL)
         
         return URLSession.shared.dataTaskPublisher(for: url)
             .receive(on: RunLoop.main)
@@ -31,13 +41,18 @@ class APIService {
             .eraseToAnyPublisher()
     }
     
+    // fetch user data from ID's
     func getUserData(with user: FetchedUser) -> AnyPublisher<User, Error> {
         let userInfoUrl = userInfoBaseURL + user.login
         guard let url = URL(string: userInfoUrl) else { fatalError("Wrong URL") }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("Bearer 12286d850bdb4755ad2502f43b972a5331e1f797", forHTTPHeaderField: "Authorization")
         
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        if !githubAuthToken.isEmpty {
+            request.setValue("Bearer \(githubAuthToken)", forHTTPHeaderField: "Authorization")
+        }
+
         return URLSession.shared.dataTaskPublisher(for: request)
             .receive(on: RunLoop.main)
             .map{$0.data}
@@ -45,6 +60,7 @@ class APIService {
             .eraseToAnyPublisher()
     }
     
+    // Combine getting ID's + getting user data
     func getAllUserData(query: String) -> AnyPublisher<[User], Error> {
         fetchUsers(query: query).flatMap { fetchedUsers in
             Publishers.Sequence(sequence: fetchedUsers.map { self.getUserData(with: $0) })
@@ -53,22 +69,13 @@ class APIService {
             
         }.eraseToAnyPublisher()
     }
-    
+
+    // fetch repositories
     func getRepositories(repositoryURL: URL) -> AnyPublisher<[Repository], Error> {
         return URLSession.shared.dataTaskPublisher(for: repositoryURL)
             .receive(on: RunLoop.main)
             .map{$0.data}
             .decode(type: [Repository].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
-    }
-
-    func url(byAdding parameters: [String : String]?, to url: URL) -> URL {
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        components?.queryItems = parameters?.compactMap({URLQueryItem(name: $0.0, value: $0.1)})
-        
-        guard let url = components?.url else {
-            fatalError("URL optional is nil")
-        }
-        return url
     }
 }

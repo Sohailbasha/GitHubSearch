@@ -17,9 +17,13 @@ protocol UserDetailInterfacing {
 class UserDetailViewController: UIViewController {
 
     private let reuseIdentifier = "repoCell"
-    var tableView: UITableView!
 
+    var tableView: UITableView!
+    var profileHeader: ProfileHeaderView!
+
+    // user object that acts as a dataprovider for this screen
     var user: User!
+    // the class used to make API calls
     var apiService: APIService!
 
     private var anyCancellable: AnyCancellable?
@@ -38,7 +42,6 @@ class UserDetailViewController: UIViewController {
 
         setupTableView()
         setupTableViewHeader()
-
         fetchRepositories()
     }
 
@@ -47,6 +50,7 @@ class UserDetailViewController: UIViewController {
         self.view.setSubviewForAutoLayout(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
 
         NSLayoutConstraint.activate([
@@ -56,21 +60,25 @@ class UserDetailViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
-    
+
     func setupTableViewHeader() {
-        let profileHeader = Bundle.main.loadNibNamed("\(ProfileHeaderView.self)", owner: nil, options: nil)!.first as! ProfileHeaderView
-        
+        let bundle = Bundle(for: ProfileHeaderView.self)
+        let nib = bundle.loadNibNamed(String(describing: ProfileHeaderView.self), owner: nil)
+        if let headerView = nib?.first as? ProfileHeaderView {
+            self.profileHeader = headerView
+        }
+
         profileHeader.setupView(user: user)
         profileHeader.headerSearchBar.delegate = self
-        
-        self.tableView.setTableHeaderView(headerView: profileHeader)
-        self.tableView.updateHeaderViewFrame()
+
+        tableView.setTableHeaderView(headerView: profileHeader)
+        tableView.updateHeaderViewFrame()
     }
 
     func fetchRepositories() {
         if let stringURL = user.reposURL, let reposURL = URL(string: stringURL) {
             self.anyCancellable = apiService.getRepositories(repositoryURL: reposURL).sink(receiveCompletion: { (_) in
-
+                // do something on complete
             }, receiveValue: { (repos) in
                 self.repositories = repos
                 self.filteredRepositories = repos

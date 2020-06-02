@@ -13,7 +13,7 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var repoCountLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .clear
@@ -24,5 +24,4 @@ class UserTableViewCell: UITableViewCell {
         repoCountLabel.text = repoCount
         avatarImageView.sd_setImage(with: imageURL, completed: nil)
     }
-
 }
