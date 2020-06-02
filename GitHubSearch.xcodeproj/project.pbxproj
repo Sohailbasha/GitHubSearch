@@ -49,7 +49,6 @@
 		FDE865C72485A27D007593AB /* TableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extension.swift"; sourceTree = "<group>"; };
 		FDE865C92485A701007593AB /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FDE865CB2485CB73007593AB /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		FDE865D02485E3F7007593AB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FDE865D12485E4A1007593AB /* URLHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +113,6 @@
 				FDB75F85248486C6002F3542 /* Assets.xcassets */,
 				FDB75F87248486C6002F3542 /* LaunchScreen.storyboard */,
 				FDB75F8A248486C6002F3542 /* Info.plist */,
-				FDE865D02485E3F7007593AB /* README.md */,
 			);
 			path = GitHubSearch;
 			sourceTree = "<group>";
